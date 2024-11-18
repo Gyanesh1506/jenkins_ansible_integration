@@ -1,0 +1,14 @@
+---
+  - name: This playbook is to install apache
+    hosts: all
+    tasks:
+      - name: Installing apache
+        yum: name=httpd state=installed
+
+      - name: Starting apache
+        service: name=httpd state=started
+
+      - name: Craeting dispay page for website
+        copy:
+          src: ./index.html
+          dest: /var/www/html/
